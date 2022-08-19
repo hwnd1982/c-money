@@ -1,0 +1,14 @@
+.exit {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.525rem;
+  border: none;
+  font-family: 'Nunito', Arial, Helvetica, sans-serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: calc(20 / 15);
+  background-color: transparent;
+  color: #fff;
+  cursor: pointer;
+}

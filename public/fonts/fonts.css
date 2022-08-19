@@ -1,0 +1,35 @@
+@font-face {
+  font-family: 'Comfortaa';
+  src: local(''), 
+    url('./Comfortaa/Comfortaa-Bold.woff2') format('woff2'),
+    url('./Comfortaa/Comfortaa-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: local(''),
+    url('./Nunito/Nunito-Regular.woff2') format('woff2'),
+    url('./Nunito/Nunito-Regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: local(''),
+    url('./Nunito/Nunito-SemiBold.woff2') format('woff2'),
+    url('./Nunito/Nunito-SemiBold.woff') format('woff');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Nunito';
+  src: local(''),
+    url('./Nunito/Nunito-Bold.woff2') format('woff2'),
+    url('./Nunito/Nunito-Bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+}

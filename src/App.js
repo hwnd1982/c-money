@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import {useDispatch} from 'react-redux';
+import {Route, Routes} from 'react-router-dom';
+import Header from './components/Header';
+import Main from './components/Main';
+import {tokenSlice} from './store/token/tokenSlice';
 
-function App() {
+const App = () => {
+  const dispatch = useDispatch();
+  dispatch(tokenSlice.actions.request());
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path='*' element={
+        <>
+          <Header />
+          <Main />
+        </>
+      } />
+    </Routes>
   );
-}
+};
 
 export default App;
