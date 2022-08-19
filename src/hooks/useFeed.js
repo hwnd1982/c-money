@@ -1,11 +1,12 @@
 import {useCallback, useEffect, useRef} from 'react';
-import {useDispatch} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 import {API_WS} from '../api/const';
 import {currenciesSlice} from '../store/currencies/currenciesSlice';
 
 export const useFeed = () => {
   const ws = useRef(null);
   const dispatch = useDispatch();
+  const isLoad = useSelector(store => store.currencies.isLoad);
   const gettingData = useCallback(() => {
     if (!ws.current) return;
 
@@ -14,9 +15,11 @@ export const useFeed = () => {
   });
 
   useEffect(() => {
+    if (!isLoad) return;
+
     ws.current = new WebSocket(API_WS);
     gettingData();
 
     return () => ws.current.close();
-  }, [ws]);
+  }, [ws, isLoad]);
 };

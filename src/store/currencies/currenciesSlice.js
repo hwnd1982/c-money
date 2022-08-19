@@ -19,6 +19,7 @@ export const currenciesSlice = createSlice({
     },
     success: (state, action) => {
       state.loading = false;
+      state.isLoad = true;
       state.header = action.payload;
       state.table = [...action.payload
         .map((from, index, currencies) => [...currencies
