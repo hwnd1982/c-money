@@ -8,10 +8,11 @@ export const useCurrencies = () => {
   const header = useSelector(store => store.currencies.header);
   const table = useSelector(store => store.currencies.table);
   const active = useSelector(store => store.currencies.active);
+  const isLoad = useSelector(store => store.currencies.isLoad);
 
   useEffect(() => {
     dispatch(currenciesSlice.actions.request());
   }, [token]);
 
-  return {header, table, active};
+  return {header, table, active, isLoad};
 };

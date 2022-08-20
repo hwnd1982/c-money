@@ -15,6 +15,7 @@ export const currenciesSlice = createSlice({
   reducers: {
     request: (state) => {
       state.loading = true;
+      state.isLoad = false;
       state.error = '';
     },
     success: (state, action) => {
@@ -31,6 +32,7 @@ export const currenciesSlice = createSlice({
       state.header = '';
       state.table = '';
       state.active = '';
+      state.isLoad = false;
     },
     update: (state, action) => {
       const cell = state.table[
