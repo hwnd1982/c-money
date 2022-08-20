@@ -6,12 +6,29 @@ import {useState} from 'react';
 import {Table} from './Table/Table';
 import {Select} from './Select/Select';
 import {Loader} from '../UI/Loader/Loader';
+import {List} from './List/List';
+import {useDispatch} from 'react-redux';
+import {currencieAccountsSlice} from '../../store/currencieAccounts/currencieAccountsSlice';
+import {useEffect} from 'react';
+import {ReactComponent as Swap} from './img/swap.svg';
 
 export const Main = () => {
+  const dispatch = useDispatch();
   const {header, table, active, isLoad} = useCurrencies();
-  const [selected, setSelected] = useState({from: '', to: ''});
+  const [selected, setSelected] = useState({from: '', to: '', amount: ''});
+
+  const input = ({target}) => setSelected({...selected, amount: target.value});
+  const swap = () => setSelected({...selected, to: selected.from, from: selected.to});
+  const send = event => {
+    event.preventDefault();
+
+    if (selected.from && selected.to && selected.amount > 0) {
+      dispatch(currencieAccountsSlice.actions.buy(selected));
+    }
+  };
 
   useFeed();
+  useEffect(() => {}, []);
 
   return (
     <main>
@@ -29,7 +46,7 @@ export const Main = () => {
             <div className={`${style.card} ${style['card_type_form']}`}>
               <h2 className={style['card__title']}>Обмен валюты</h2>
               {isLoad ?
-                <form className={style.exchange}>
+                <form className={style.exchange} onSubmit={send}>
                   <Select
                     name={'from'}
                     filter={'to'}
@@ -38,6 +55,9 @@ export const Main = () => {
                     selected={selected}
                     setSelected={setSelected}
                   />
+                  <button className={style.swap} onClick={swap}>
+                    <Swap className={style.svg} />
+                  </button>
                   <Select
                     name={'to'}
                     filter={'from'}
@@ -47,11 +67,19 @@ export const Main = () => {
                     setSelected={setSelected}
                   />
                   <label className={style.label} htmlFor="amount">Сумма</label>
-                  <input className={style.input} type="number" id="amount" name='amount' />
+                  <input
+                    className={style.input}
+                    type="number"
+                    id="amount"
+                    name='amount'
+                    value={selected.amount}
+                    onInput={input}
+                  />
                   <button className={style.button} type='submit'>Обменять</button>
                 </form> : <Loader fill='#9C19CA' stroke='#9C19CA' />
               }
             </div>
+            <List selected={selected} setSelected={setSelected} />
           </div>
         </div>
       </Layout>

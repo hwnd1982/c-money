@@ -9,11 +9,11 @@ export const Table = ({header, table, active, selected, setSelected}) => {
 
   const selectOn = ({target}) =>
     target.dataset.from !== target.dataset.to &&
-      setSelected({from: target.dataset.from || '', to: target.dataset.to || ''});
+      setSelected({...selected, from: target.dataset.from || '', to: target.dataset.to || ''});
 
   const highlightOn = ({target}) =>
     target.dataset.from !== target.dataset.to &&
-      setHighlighted({from: target.dataset.from || '', to: target.dataset.to || ''});
+      setHighlighted({selected, from: target.dataset.from || '', to: target.dataset.to || ''});
 
   const highlightOff = () => setHighlighted({from: '', to: ''});
 
@@ -27,13 +27,9 @@ export const Table = ({header, table, active, selected, setSelected}) => {
         <tr className={style.row}>
           <th className={style.cell}>\</th>
           {header.map(item => (<th
-            className={`${
-              style.cell
-            }${
-              highlighted.from === item ? ` ${style.highlight}` : ''
-            }${
-              selected.from === item ? ` ${style.selected}` : ''
-            }`}
+            className={`${style.cell
+            }${highlighted.from === item ? ` ${style.highlight}` : ''
+            }${selected.from === item ? ` ${style.selected}` : ''}`}
             id={`${item}/`}
             data-from={item}
             key={`${item}/to`}
@@ -45,30 +41,18 @@ export const Table = ({header, table, active, selected, setSelected}) => {
           (<tr className={style.row} key={`from/${header[from]}`}>
             <th
               data-to={header[from]}
-              className={`${
-                style.cell
-              }${
-                              highlighted.to === header[from] ? ` ${style.highlight}` : ''
-              }${
-                              selected.to === header[from] ? ` ${style.selected}` : ''
-              }`}
+              className={`${style.cell
+              }${highlighted.to === header[from] ? ` ${style.highlight}` : ''
+              }${selected.to === header[from] ? ` ${style.selected}` : ''}`}
             >
               {header[from]}
             </th>
             {item.map((item, to) => (
               <td
-                className={
-                  `${
-                    style.cell
-                  }${
-                                  active.from === from && active.to === to ? ` ${style.active}` : ''
-                  }${
-                                  selected.from === header[to] && selected.to === header[from] ?
-                                    ` ${style.selected}` : ''
-                  }${
-                                  highlighted.from === header[to] || highlighted.to === header[from] ?
-                                    ` ${style.highlight}` : ''
-                  }`
+                className={`${style.cell
+                }${active.from === from && active.to === to ? ` ${style.active}` : ''
+                }${selected.from === header[to] && selected.to === header[from] ? ` ${style.selected}` : ''
+                }${highlighted.from === header[to] || highlighted.to === header[from] ? ` ${style.highlight}` : ''}`
                 }
                 data-from={header[to]}
                 data-to={header[from]}

@@ -7,7 +7,7 @@ export const Select = ({name, filter, header, label, selected, setSelected}) => 
     <>
       <label className={style.label} htmlFor={name}>{label}</label>
       <select
-        className={style.input}
+        className={`${style.input}${` ${style[`input_type_${name}`]}`}`}
         name={name}
         id={name}
         value={selected[name]}

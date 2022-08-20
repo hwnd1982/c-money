@@ -21,7 +21,7 @@ export const currenciesSlice = createSlice({
     success: (state, action) => {
       state.loading = false;
       state.isLoad = true;
-      state.header = action.payload;
+      state.header = action.payload.sort();
       state.table = [...action.payload
         .map((from, index, currencies) => [...currencies
           .map(to => ({rate: to === from ? 1 : 0, change: 0, gap: 0}))])];

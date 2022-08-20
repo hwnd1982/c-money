@@ -1,6 +1,5 @@
 .svg {
-  align-self: center;
-  justify-self: center;
-  object-fit: cover;
-  object-position: center;
+  position: absolute;
+  display: flex;
+  inset: 0;
 }

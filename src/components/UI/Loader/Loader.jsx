@@ -64,7 +64,7 @@ export const Loader = ({fill = '#fff', stroke = '#fff'}) => {
 
   return (
     <div className={style.svg}>
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 250 750 100">
         <g className={`whole-${hash}`} fill={fill} stroke={stroke} strokeWidth="2">
           <circle className={`leader-${hash}`} cx="328" cy="300" r="13"/>
           <circle className={`follower-${hash}`} cx="364" cy="300" r="13"/>
