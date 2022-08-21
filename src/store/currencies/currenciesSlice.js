@@ -47,8 +47,8 @@ export const currenciesSlice = createSlice({
       }
       cell.rate = action.payload.rate;
       state.active = {
-        from: state.header.indexOf(action.payload.from),
-        to: state.header.indexOf(action.payload.to)
+        from: state.header.indexOf(action.payload.to),
+        to: state.header.indexOf(action.payload.from)
       };
     },
   },
