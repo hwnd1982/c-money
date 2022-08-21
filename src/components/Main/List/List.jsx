@@ -11,13 +11,11 @@ export const List = ({selected, setSelected}) => {
 
   const click = ({currentTarget}) => {
     if (currentTarget.dataset.account) {
-      if (currentTarget.dataset.account === selected.to) {
-        setSelected({
-          ...selected,
-          from: currentTarget.dataset.account,
-          to: currentTarget.dataset.account === selected.to ? '' : selected.to
-        });
-      }
+      setSelected({
+        ...selected,
+        from: currentTarget.dataset.account,
+        to: currentTarget.dataset.account === selected.to ? '' : selected.to
+      });
     }
   };
 
