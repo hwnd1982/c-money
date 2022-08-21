@@ -10,7 +10,9 @@ export const List = ({selected, setSelected}) => {
   const {accounts, loading, isLoad, buy} = useCurrencieAccounts();
   const click = ({currentTarget}) => {
     if (currentTarget.dataset.account) {
-      setSelected({...selected, from: currentTarget.dataset.account});
+      if (currentTarget.dataset.account !== selected.to) {
+        setSelected({...selected, from: currentTarget.dataset.account});
+      }
     }
   };
 
