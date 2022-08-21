@@ -55,7 +55,7 @@ export const Main = () => {
                     selected={selected}
                     setSelected={setSelected}
                   />
-                  <button className={style.swap} onClick={swap}>
+                  <button className={style.swap} onClick={swap} type='button'>
                     <Swap className={style.svg} />
                   </button>
                   <Select
