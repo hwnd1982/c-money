@@ -8,6 +8,11 @@ import {useEffect} from 'react';
 
 export const List = ({selected, setSelected}) => {
   const {accounts, loading, isLoad, buy} = useCurrencieAccounts();
+  const click = ({currentTarget}) => {
+    if (currentTarget.dataset.account) {
+      setSelected({...selected, from: currentTarget.dataset.account});
+    }
+  };
 
   useEffect(() => {
     if (loading) return;
@@ -23,6 +28,8 @@ export const List = ({selected, setSelected}) => {
           {Object.keys(accounts).map(item => (
             <li
               key={`account-${item}`}
+              data-account={item}
+              onClick={click}
               className={`
               ${style.item
               }${selected.to === item || selected.from === item || buy.to === item || buy.from === item ?
