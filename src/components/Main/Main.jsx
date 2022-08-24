@@ -40,7 +40,7 @@ export const Main = () => {
               <h2 className={style['card__title']}>Изменение курса в режиме реального времени</h2>
               {isLoad ?
                 <Table header={header} table={table} active={active} selected={selected} setSelected={setSelected} /> :
-                <Loader fill='#9C19CA' stroke='#9C19CA' />
+                <div className={style['card_type_table']}><Loader fill='#9C19CA' stroke='#9C19CA' /></div>
               }
             </div>
             <div className={`${style.card} ${style['card_type_form']}`}>
@@ -76,7 +76,7 @@ export const Main = () => {
                     onInput={input}
                   />
                   <button className={style.button} type='submit'>Обменять</button>
-                </form> : <Loader fill='#9C19CA' stroke='#9C19CA' />
+                </form> : <div className={style['card_type_form']}><Loader fill='#9C19CA' stroke='#9C19CA' /></div>
               }
             </div>
             <List selected={selected} setSelected={setSelected} />
