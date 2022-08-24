@@ -58,8 +58,8 @@ export const Table = ({header, table, active, selected, setSelected}) => {
                 data-to={header[from]}
                 key={`${header[from]}/${header[to]}`}
               >
-                {item.rate ? item.rate === 1 ? '' : `${item.rate} ` : '---'}
-                {item.change ? item.change > 0 ? <Up /> : <Down /> : ''}
+                {item.rate ? item.rate === 1 ? '' : `${item.rate}` : '---'}
+                {item.change ? item.change > 0 ? <Up className={style.svg} /> : <Down className={style.svg} /> : ''}
                 {/* {item.change ? item.change > 0 ? `(+${item.gap})` : `(${item.gap})` : ''} */}
               </td>
             ))}

@@ -26,3 +26,8 @@
 .active {
   background-color: #9C19CA;
 }
+
+.svg {
+  width: 0.9rem;
+  height: 0.7rem;
+}

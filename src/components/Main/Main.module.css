@@ -28,7 +28,7 @@
 }
 
 .card_type_table {
-  min-width: 82.7rem;
+  min-width: 84rem;
   min-height: 48.9rem;
 }
 
@@ -60,6 +60,7 @@
 
 .input {
   margin-bottom: 1.2rem;
+  font-size: 1.4rem;
   border: none;
   padding: 1.1rem 1.6rem 1.1rem 1rem;
   border-radius: 0.6rem;
