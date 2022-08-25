@@ -1,6 +1,7 @@
 .row {
   display: flex;
   border-bottom: 0.1rem solid #210B36;
+  height: 2.5rem;
 }
 
 .cell {

@@ -7,6 +7,7 @@
   font-size: 2.6rem;
   line-height: calc(29 / 26);
   margin-top: 0;
+  margin-bottom: 2.1rem;
 }
 
 .info {
@@ -24,13 +25,13 @@
 }
 
 .card_type_table {
-  width: 82.5rem;
-  height: 48.3rem;
+  width: 84rem;
+  height: 48.5rem;
 }
 
 .card_type_form {
-  width: 15rem;
-  height: 33.9rem;
+  width: 20rem;
+  height: 37.5rem;
 }
 
 .card__title {
